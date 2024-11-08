@@ -22,7 +22,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('home_static_page.urls'))
+    path('', include('home_page_static.urls')),
+
 ]
 
 # Pour servir les fichiers statiques et médias pendant le développement
