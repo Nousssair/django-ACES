@@ -18,13 +18,13 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
-from hotel.views import HotelListView
+from hotel.views import *
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home_static_page.urls')),
-    path('list_hotel/', HotelListView.as_view(), name='list_hotel'),
+    path('list-hotel/',include('hotel.urls')),
 
 ]
 
