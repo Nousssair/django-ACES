@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="msapplication-TileColor" content="#0E0E0E">
+    <meta name="template-color" content="#0E0E0E">
+    <meta name="description" content="Index page">
+    <meta name="keywords" content="index, page">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'site/imgs/template/favicon.svg' %}">
+    <link href="{% static 'site/css/stylee209.css' %}?v=1.0.0" rel="stylesheet">
+    <title>Home 5 - Modern Travel Tour Booking Template</title>
+</head>
+
+<body>
+    <!--preloader-->
+    <!--header-->
+    {% include 'site/partials/header.html' %}
+    <!--mobile-->
+    {% include 'site/partials/mobile.html' %}
+    <!--bloc content-->
+    {% block content %}
+
+    {% endblock content %}
+
+    <!--Footer-->
+    {% include 'site/partials/footer.html' %}
+    <!---Popps-->
+    <div class="popup-firstload">
+        <div class="popup-container">
+            <div class="popup-content"> <a class="close-popup"></a>
+                <div class="popup-left">
+                    <div class="logo-area"> <img class="light-mode" alt="Travila"
+                            src="{% static 'site/imgs/template/logo.svg' %}"><img class="dark-mode" alt="Travila"
+                            src="{% static 'site/imgs/template/logo-w.svg' %}"></div>
+                    <h3 class="title-popup">Book, Pack, Go! Your Ultimate Travel Companion</h3><a
+                        class="btn btn-black-lg" href="#">Exploring Now
+                        <svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 15L15 8L8 1M15 8L1 8" stroke="" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg></a>
+                </div>
+                <div class="popup-right">
+                    <div class="box-price">
+                        <div class="box-price-inner"> <span class="text-price-1">SAVE 39%</span><span
+                                class="text-price-2">$899</span><a class="text-price-3" href="#">BOOK NOW</a></div>
+                    </div><img alt="Travila" src="{% static 'site/imgs/template/img-popup.png' %}">
+                    <div class="button-area"> <a class="btn btn-next" href="#">
+                            <svg width="12" height="12" viewbox="0 0 12 12" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M5.99992 10.6668L10.6666 6.00016L5.99992 1.3335M10.6666 6.00016L1.33325 6.00016"
+                                    stroke="" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Vendors Scripts-->
+    <script src="{% static 'site/js/vendor/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'site/js/vendor/jquery-migrate-3.3.0.min.js' %}"></script>
+    <script src="{% static 'site/js/vendor/bootstrap.bundle.min.js' %}"></script>
+    <!--Other-->
+    <script src="{% static 'site/js/plugins/magnific-popup.js' %}"></script>
+    <script src="{% static 'site/js/plugins/perfect-scrollbar.min.js' %}"></script>
+    <script src="{% static 'site/js/plugins/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'site/js/plugins/slick.js' %}"></script>
+    <script src="{% static 'site/js/plugins/jquery.carouselTicker.js' %}"></script>
+    <script src="{% static 'site/js/plugins/masonry.min.js' %}"></script>
+    <script src="{% static 'site/js/plugins/scrollup.js' %}"></script>
+    <script src="{% static 'site/js/plugins/wow.js' %}"></script>
+    <script src="{% static 'site/js/plugins/waypoints.js' %}"></script>
+    <script src="{% static 'site/js/plugins/counterup.js' %}"></script>
+    <script src="{% static 'site/js/plugins/bootstrap-datepicker.js' %}"></script>
+    <script src="{% static 'site/js/plugins/dark.js' %}"></script>
+    <!-- Count down-->
+    <script src="{% static 'site/js/vendor/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'site/js/plugins/noUISlider.js' %}"></script>
+    <script src="{% static 'site/js/plugins/slider.js' %}"></script>
+    <!--Custom script for this template-->
+    <script src="{% static 'site/js/maine209.js' %}?v=1.0.0"></script>
+</body>
+
+</html>
