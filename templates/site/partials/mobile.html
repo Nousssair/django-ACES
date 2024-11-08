@@ -69,7 +69,11 @@
                             <li><a href="#">Cars Rental</a></li>
                             <li><a href="#">Blog</a></li>
                             <li><a href="{% url 'about_page' %}">About Us</a></li>
-                            <li><a href="contact">Contact</a></li>
+                            <li class="has-children"><a href="{% url 'contact_page' %}">Contact</a></li>
+                            <ul class="sub-menu">
+                                <li> <a href="{% url 'faq_page' %}">FAQs</a></li>
+                            </ul>
+
                         </ul>
                     </nav>
                 </div>
