@@ -16,14 +16,13 @@
     <div class="container-fluid background-body">
         <div class="main-header">
             <div class="header-left">
-                <div class="header-logo"><a class="d-flex" href="index.html"><img class="light-mode" alt="Travila"
+                <div class="header-logo"><a class="d-flex" href="{% url 'home_page' %}"><img class="light-mode" alt="Travila"
                             src="{% static 'site/imgs/template/logo.svg' %}"><img class="dark-mode" alt="Travila"
                             src="{% static 'site/imgs/template/logo-w.svg' %}"></a></div>
                 <div class="header-nav">
                     <nav class="nav-main-menu">
                         <ul class="main-menu">
-                            <li><a class="active" href="#">Home</a>
-                            </li>
+                            <li><a class="active" href="{% url 'home_page' %}">Home</a></li>
                             <li class="has-children"><a href="#">Event</a>
                                 <ul class="sub-menu">
                                     <li><a href="#">Special Event</a></li>
@@ -64,9 +63,10 @@
                                     
                                 </ul>
                             </li>
-                            <li><a href="contact">Cars Rental</a></li>
-                            <li><a href="contact">Blog</a></li>
-                            <li><a href="contact">Contact</a></li>
+                            <li><a href="#">Cars Rental</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="{% url 'about_page' %}">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
