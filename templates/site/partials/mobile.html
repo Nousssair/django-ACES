@@ -37,7 +37,9 @@
                                     <li><a href="destination">Hotels</a></li>
                                     <li><a href="destination-2">VIP Pack</a></li>
                                     <li><a href="destination-3">Tent Pack</a></li>
-                                    <li><p><b>Rental Property</b></p></li>
+                                    <li>
+                                        <p><b>Rental Property</b></p>
+                                    </li>
                                     <li><a href="destination-4">Rental Property</a></li>
                                 </ul>
                             </li>
@@ -63,16 +65,18 @@
                                     <li> <a href="#">Trukey</a></li>
                                     <li> <a href="#">Egypt</a></li>
                                     <li> <a href="#">Morocco</a></li>
-                                    
+
                                 </ul>
                             </li>
                             <li><a href="#">Cars Rental</a></li>
                             <li><a href="#">Blog</a></li>
                             <li><a href="{% url 'about_page' %}">About Us</a></li>
-                            <li class="has-children"><a href="{% url 'contact_page' %}">Contact</a></li>
-                            <ul class="sub-menu">
-                                <li> <a href="{% url 'faq_page' %}">FAQs</a></li>
-                            </ul>
+                            <li class="has-children"><a href="{% url 'contact_page' %}">Contact</a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'contact_page' %}">Contact</a>
+                                    <li> <a href="{% url 'faq_page' %}">FAQs</a></li>
+                                </ul>
+                            </li>
 
                         </ul>
                     </nav>

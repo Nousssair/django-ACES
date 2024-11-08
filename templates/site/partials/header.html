@@ -16,9 +16,9 @@
     <div class="container-fluid background-body">
         <div class="main-header">
             <div class="header-left">
-                <div class="header-logo"><a class="d-flex" href="{% url 'home_page' %}"><img class="light-mode" alt="Travila"
-                            src="{% static 'site/imgs/template/logo.svg' %}"><img class="dark-mode" alt="Travila"
-                            src="{% static 'site/imgs/template/logo-w.svg' %}"></a></div>
+                <div class="header-logo"><a class="d-flex" href="{% url 'home_page' %}"><img class="light-mode"
+                            alt="Travila" src="{% static 'site/imgs/template/logo.svg' %}"><img class="dark-mode"
+                            alt="Travila" src="{% static 'site/imgs/template/logo-w.svg' %}"></a></div>
                 <div class="header-nav">
                     <nav class="nav-main-menu">
                         <ul class="main-menu">
@@ -60,16 +60,18 @@
                                     <li> <a href="#">Trukey</a></li>
                                     <li> <a href="#">Egypt</a></li>
                                     <li> <a href="#">Morocco</a></li>
-                                    
+
                                 </ul>
                             </li>
                             <li><a href="#">Cars Rental</a></li>
                             <li><a href="#">Blog</a></li>
                             <li><a href="{% url 'about_page' %}">About Us</a></li>
-                            <li class="has-children"><a href="{% url 'contact_page' %}">Contact</a></li>
-                            <ul class="sub-menu">
-                                <li> <a href="{% url 'faq_page' %}">FAQs</a></li>
-                            </ul>
+                            <li class="has-children"><a href="{% url 'contact_page' %}">Contact</a>
+                                <ul class="sub-menu">
+                                    <li> <a href="{% url 'contact_page' %}">Contact</a></li>
+                                    <li> <a href="{% url 'faq_page' %}">FAQs</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -99,11 +101,11 @@
                 </div>
                 <div class="d-none d-xxl-inline-block align-middle mr-15"><a class="btn btn-mode change-mode mr-15"
                         href="#" data-bs-theme-value="dark"> <img class="light-mode"
-                            src="{% static 'site/imgs/template/icons/light.svg' %}" alt="Travila"><img
-                            class="dark-mode" src="{% static 'site/imgs/template/icons/light-w.svg' %}"
-                            alt="Travila"></a><a class="btn btn-default btn-signin" href="#">Signin</a></div>
-                <div class="burger-icon-2 burger-icon-white"><img
-                        src="{% static 'site/imgs/template/icons/menu.svg' %}" alt="Travila"></div>
+                            src="{% static 'site/imgs/template/icons/light.svg' %}" alt="Travila"><img class="dark-mode"
+                            src="{% static 'site/imgs/template/icons/light-w.svg' %}" alt="Travila"></a><a
+                        class="btn btn-default btn-signin" href="#">Signin</a></div>
+                <div class="burger-icon-2 burger-icon-white"><img src="{% static 'site/imgs/template/icons/menu.svg' %}"
+                        alt="Travila"></div>
                 <div class="burger-icon burger-icon-white"><span class="burger-icon-top"></span><span
                         class="burger-icon-mid"></span><span class="burger-icon-bottom"></span></div>
             </div>
