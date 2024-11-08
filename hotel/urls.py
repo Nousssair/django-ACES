@@ -1,5 +1,7 @@
-from django.views.generic import TemplateView
+# home_page_static/urls.py
+from django.urls import path
+from .views import *
 
-# Définir la vue CBV pour afficher "Hello"
-class HotelListView(TemplateView):
-    template_name = 'list_hotel.html'
+urlpatterns = [
+    path('', HotelListView.as_view(), name='lite_hotel'),
+]
