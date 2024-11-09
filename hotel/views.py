@@ -1,14 +1,17 @@
-from django.views.generic import TemplateView
+from django.shortcuts import get_object_or_404
+from django.views.generic import ListView, DetailView
 from .models import *
 
-# Définir la vue CBV pour afficher "Hello"
-class HotelListView(TemplateView):
-    Model = Hotel
+# Vue pour afficher la liste des hôtels
+class HotelListView(ListView):
+    model = Hotel
     template_name = 'list-hotel.html'
-    content_type = 'hotels'
-    
+    context_object_name = 'hotels'
 
-class HotelDetailView(TemplateView):
-    Model = Hotel
+# Vue pour afficher les détails d'un hôtel
+class HotelDetailView(DetailView):
+    model = Hotel
     template_name = 'detail-hotel.html'
-    content_type = 'hotel'
+    context_object_name = 'hotel'
+    def get_object(self, queryset=None):
+        return get_object_or_404(Hotel, slug=self.kwargs['slug'])

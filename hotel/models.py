@@ -73,8 +73,8 @@ class Hotel(models.Model):
 class HotelBooking(models.Model):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name="bookings")
     order_number = models.CharField(max_length=20, unique=True)
-    check_in = models.DateField()
-    check_out = models.DateField()
+    check_in = models.DateField(blank=True, null=True)
+    check_out = models.DateField(blank=True, null=True)
     
     number_of_adults = models.PositiveSmallIntegerField(default=1, verbose_name="Number of Adults (18+)")
     amount_per_adult = models.DecimalField(max_digits=10, decimal_places=2)
