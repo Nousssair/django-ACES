@@ -40,6 +40,19 @@
         font-size: 18px;
         margin-right: 8px;
     }
+
+    .status.included {
+        color: #28a745; /* Couleur verte pour "Included" */
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+    
+    .status.not-available {
+        color: #dc3545; /* Couleur rouge pour "Not Available" */
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+    
 </style>
 
 <main class="main">
@@ -110,28 +123,153 @@
     <section
         class="box-section box-buttons-destination box-buttons-destination-5 box-buttons-room-detail-2 background-card">
         <div class="container-fluid">
-            <div class="box-button-faq wow fadeInRight"> <a class="btn btn-border-1" href="#"> <img
-                        src="{% static 'site/imgs/page/room/airport.svg' %}" alt="Travila">Airport Transfer</a><a
-                    class="btn btn-border-1" href="#"> <img src="{% static 'site/imgs/page/room/safety-box.svg' %}"
-                        alt="Travila">Safety Box</a><a class="btn btn-border-1" href="#"> <img
-                        src="{% static 'site/imgs/page/room/coffee-shop.svg' %}" alt="Travila">Balcony</a><a
-                    class="btn btn-border-1" href="#"> <img src="{% static 'site/imgs/page/room/massage.svg' %}"
-                        alt="Travila">Spa Sauna</a><a class="btn btn-border-1" href="#"> <img
-                        src="{% static 'site/imgs/page/room/animal.svg' %}" alt="Travila">Pet
-                    Allowed</a><a class="btn btn-border-1" href="#"> <img
-                        src="{% static 'site/imgs/page/room/wifi.svg' %}" alt="Travila">Free Wifi</a><a
-                    class="btn btn-border-1" href="#"> <img src="{% static 'site/imgs/page/room/hairdryer.svg' %}"
-                        alt="Travila">Air Dryer</a><a class="btn btn-border-1" href="#"> <img
-                        src="{% static 'site/imgs/page/room/air-conditioner.svg' %}" alt="Travila">Air Condition</a><a
-                    class="btn btn-border-1" href="#"> <img src="{% static 'site/imgs/page/room/loundry.svg' %}"
-                        alt="Travila">Loundry Service</a><a class="btn btn-border-1" href="#"> <img
-                        src="{% static 'site/imgs/page/room/bed.svg' %}" alt="Travila">King Size Bed</a><a
-                    class="btn btn-border-1" href="#"> <img src="{% static 'site/imgs/page/room/food.svg' %}"
-                        alt="Travila">Front desk</a><a class="btn btn-border-1" href="#"> <img
-                        src="{% static 'site/imgs/page/room/living.svg' %}" alt="Travila">Living
-                    Area</a><a class="btn btn-border-1" href="#"> <img
-                        src="{% static 'site/imgs/page/room/living.svg' %}" alt="Travila">Living Area</a></div>
-        </div>
+            <div class="box-button-faq wow fadeInRight">
+                {% if hotel.airport_transfer %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/airport.svg' %}" alt="Travila">
+                        Airport Transfer: <span class="status included">Included</span>
+                    </a>
+                {% else %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/airport.svg' %}" alt="Travila">
+                        Airport Transfer: <span class="status not-available">Not Available</span>
+                    </a>
+                {% endif %}
+            
+                {% if hotel.safety_box %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/safety-box.svg' %}" alt="Travila">
+                        Safety Box: <span class="status included">Included</span>
+                    </a>
+                {% else %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/safety-box.svg' %}" alt="Travila">
+                        Safety Box: <span class="status not-available">Not Available</span>
+                    </a>
+                {% endif %}
+            
+                {% if hotel.balcony %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/coffee-shop.svg' %}" alt="Travila">
+                        Balcony: <span class="status included">Included</span>
+                    </a>
+                {% else %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/coffee-shop.svg' %}" alt="Travila">
+                        Balcony: <span class="status not-available">Not Available</span>
+                    </a>
+                {% endif %}
+            
+                {% if hotel.spa_sauna %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/massage.svg' %}" alt="Travila">
+                        Spa & Sauna: <span class="status included">Included</span>
+                    </a>
+                {% else %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/massage.svg' %}" alt="Travila">
+                        Spa & Sauna: <span class="status not-available">Not Available</span>
+                    </a>
+                {% endif %}
+            
+                {% if hotel.pet_allowed %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/animal.svg' %}" alt="Travila">
+                        Pet Allowed: <span class="status included">Included</span>
+                    </a>
+                {% else %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/animal.svg' %}" alt="Travila">
+                        Pet Allowed: <span class="status not-available">Not Available</span>
+                    </a>
+                {% endif %}
+            
+                {% if hotel.free_wifi %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/wifi.svg' %}" alt="Travila">
+                        Free Wi-Fi: <span class="status included">Included</span>
+                    </a>
+                {% else %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/wifi.svg' %}" alt="Travila">
+                        Free Wi-Fi: <span class="status not-available">Not Available</span>
+                    </a>
+                {% endif %}
+            
+                {% if hotel.air_dryer %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/hairdryer.svg' %}" alt="Travila">
+                        Air Dryer: <span class="status included">Included</span>
+                    </a>
+                {% else %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/hairdryer.svg' %}" alt="Travila">
+                        Air Dryer: <span class="status not-available">Not Available</span>
+                    </a>
+                {% endif %}
+            
+                {% if hotel.air_conditioning %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/air-conditioner.svg' %}" alt="Travila">
+                        Air Conditioning: <span class="status included">Included</span>
+                    </a>
+                {% else %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/air-conditioner.svg' %}" alt="Travila">
+                        Air Conditioning: <span class="status not-available">Not Available</span>
+                    </a>
+                {% endif %}
+            
+                {% if hotel.laundry_service %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/loundry.svg' %}" alt="Travila">
+                        Laundry Service: <span class="status included">Included</span>
+                    </a>
+                {% else %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/loundry.svg' %}" alt="Travila">
+                        Laundry Service: <span class="status not-available">Not Available</span>
+                    </a>
+                {% endif %}
+            
+                {% if hotel.king_size_bed %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/bed.svg' %}" alt="Travila">
+                        King Size Bed: <span class="status included">Included</span>
+                    </a>
+                {% else %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/bed.svg' %}" alt="Travila">
+                        King Size Bed: <span class="status not-available">Not Available</span>
+                    </a>
+                {% endif %}
+            
+                {% if hotel.front_desk %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/food.svg' %}" alt="Travila">
+                        Front Desk: <span class="status included">Included</span>
+                    </a>
+                {% else %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/food.svg' %}" alt="Travila">
+                        Front Desk: <span class="status not-available">Not Available</span>
+                    </a>
+                {% endif %}
+            
+                {% if hotel.living_area %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/living.svg' %}" alt="Travila">
+                        Living Area: <span class="status included">Included</span>
+                    </a>
+                {% else %}
+                    <a class="btn btn-border-1" href="#"> 
+                        <img src="{% static 'site/imgs/page/room/living.svg' %}" alt="Travila">
+                        Living Area: <span class="status not-available">Not Available</span>
+                    </a>
+                {% endif %}
+            </div>
+        </div>    
+            
     </section>
     <section class="box-section box-content-tour-detail box-content-room-detail background-body">
         <div class="container">
