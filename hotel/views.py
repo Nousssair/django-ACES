@@ -2,6 +2,8 @@ from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView
 from hotel.filters import HotelFilter
 from .models import *
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
 # Vue pour afficher la liste des hôtels
 class HotelListView(ListView):
@@ -19,7 +21,14 @@ class HotelListView(ListView):
             hotel.stars_empty_range = range(6 - hotel.stars)  # Liste d'étoiles vides
         
         # Ajouter le formulaire de filtrage au contexte pour l'utiliser dans le template
-        context['filter'] = HotelFilter(self.request.GET, queryset=self.get_queryset()).form
+        hotel_filter = HotelFilter(self.request.GET, queryset=self.get_queryset())
+        context['filter'] = hotel_filter
+        
+        
+        #verificaiton si acun résultat trouvé :
+        if not hotel_filter.qs.exists():
+            messages.info(self.request, 'Not exist in search')
+            
         return context
     
     def get_queryset(self):

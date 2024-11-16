@@ -317,20 +317,40 @@
               <div class="block-filter border-1">
                 <h6 class="text-lg-bold item-collapse neutral-1000">Filter</h6>
                 <!-- Formulaire de filtre -->
-                <form method="get">
+                {% if messages %}
+                <div class="alert alert-info" role="alert">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+              {% endif %}
+              
+              <!-- Formulaire de filtrage -->
+              <form method="get">
                   <div class="form-group">
-                    <div class="form-group">
-                      <label for="id_titre">Titre</label>
-                      {{ myfilter.form.name }}
+                      <label for="id_name">Hotel Name</label>
+                      {{ filter.form.name }}
                   </div>
                   <div class="form-group">
-                    <label for="id_pays">Pays</label>
-                    {{ myfilter.form.room_type }}
-                </div>
-                    <!-- Formulaire de filtre -->
+                      <label for="id_room_type">Room Type</label>
+                      {{ filter.form.room_type }}
+                  </div>
+                  <div class="form-group">
+                      <label for="id_rating">Rating</label>
+                      {{ filter.form.rating }}
+                  </div>
+                  <div class="form-group">
+                      <label for="id_category">Category</label>
+                      {{ filter.form.category }}
+                  </div>
+                  <div class="form-group">
+                      <label for="id_amount_per_adult">Max Price per Adult</label>
+                      {{ filter.form.amount_per_adult }}
                   </div>
                   <input type="submit" value="Search" class="btn btn-gray mt-2">
-                </form>
+              </form>
+              
+              
               </div>
             </div>
           </div>

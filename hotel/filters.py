@@ -1,14 +1,16 @@
 import django_filters
 from django import forms
 from .models import *
+from django.db.models import Q
 
 class HotelFilter(django_filters.FilterSet):
     # Filtrer par nom de l'hôtel
-    name = django_filters.CharFilter(
+    name = django_filters.ChoiceFilter(
         field_name='name',
-        lookup_expr='icontains',  # Recherche insensible à la casse
+        #lookup_expr='icontains',  # Recherche insensible à la casse
+        choices=lambda:[(hotel.name, hotel.name) for hotel in Hotel.objects.all()], #champs select for name of hotel
         label='Hotel Name',
-        widget=forms.TextInput(attrs={'class': 'form-control'})
+        widget=forms.Select(attrs={'class': 'form-control'})
     )
 
     # Filtrer par type de chambre
