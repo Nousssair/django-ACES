@@ -14,3 +14,5 @@ class HotelBookingAdmin(admin.ModelAdmin):
     list_display = ('hotel', 'order_number', 'check_in', 'check_out', 'total_amount')
     search_fields = ('hotel__name', 'order_number')
     list_filter = ('check_in', 'check_out')
+    
+

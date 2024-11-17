@@ -1,9 +1,14 @@
 from django.shortcuts import get_object_or_404
-from django.views.generic import ListView, DetailView
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.views import View
+from django.views.generic import ListView, DetailView , View
 from hotel.filters import HotelFilter
 from .models import *
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
+from .forms import  HotelBookingForm
+
 
 # Vue pour afficher la liste des hôtels
 class HotelListView(ListView):
@@ -46,3 +51,54 @@ class HotelDetailView(DetailView):
     context_object_name = 'hotel'
     def get_object(self, queryset=None):
         return get_object_or_404(Hotel, slug=self.kwargs['slug'])
+    
+    def get_context_data(self, **kwargs):
+        # Récupérer le contexte de la vue DetailView par défaut
+        context = super().get_context_data(**kwargs)
+        
+        # Ajouter les réservations associées à l'hôtel dans le contexte
+        hotel = self.get_object()
+        bookings = HotelBooking.objects.filter(hotel=hotel)  # Récupérer les réservations pour cet hôtel
+        context['bookings'] = bookings  # Ajouter les réservations au contexte
+        
+        return context
+    
+    
+
+
+
+
+
+
+class HotelBookingView(View):
+    def get(self, request, *args, **kwargs):
+        # Récupérer l'hôtel (à partir du slug, par exemple)
+        hotel = get_object_or_404(Hotel, slug=self.kwargs['slug'])
+        
+        # Créer le formulaire
+        form = HotelBookingForm(initial={'hotel': hotel})
+        
+        # Afficher le formulaire dans le template
+        return render(request, 'hotel_booking_form.html', {'form': form, 'hotel': hotel})
+
+    def post(self, request, *args, **kwargs):
+        # Récupérer l'hôtel (à partir du slug, par exemple)
+        hotel = get_object_or_404(Hotel, slug=self.kwargs['slug'])
+
+        # Créer le formulaire avec les données soumises
+        form = HotelBookingForm(request.POST)
+
+        # Si le formulaire est valide
+        if form.is_valid():
+            # Sauvegarder la réservation
+            booking = form.save(commit=False)
+            booking.hotel = hotel  # Associer l'hôtel à la réservation
+            booking.save()
+
+            # Afficher un message de confirmation ou rediriger
+            return render(request, 'booking_confirmation.html', {'booking': booking})
+        
+        # Si le formulaire n'est pas valide, on le renvoie avec les erreurs
+        return render(request, 'hotel_booking_form.html', {'form': form, 'hotel': hotel})
+
+    
